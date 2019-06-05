@@ -7,13 +7,14 @@ var taco = require("../models/taco.js");
 
 
 
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
     taco.all(function(data) {
         var hbsObject = {
             tacos: data
         };
-        console.log(hbsObject);
+        //console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
@@ -21,12 +22,11 @@ router.get("/", function(req, res) {
 
 
 
-
 router.post("/api/tacos", function(req, res) {
     taco.create([
-        "name", "sleepy"
+        "taco_name", "shell", "vegetarian", "picked_up"
     ], [
-        req.body.name, req.body.sleepy
+        req.body.name, req.body.shell, req.body.vegetarian, req.body.picked_up
     ], function(result) {
         // Send back the ID of the new taco
         res.json({ id: result.insertId });
@@ -39,10 +39,13 @@ router.post("/api/tacos", function(req, res) {
 router.put("/api/tacos/:id", function(req, res) {
     var condition = "id = " + req.params.id;
 
-    console.log("condition", condition);
+    //console.log("condition", condition);
 
     taco.update({
-        sleepy: req.body.sleepy
+        taco_name: req.body.name,
+        shell: req.body.shell,
+        vegetarian: req.body.vegetarian,
+        picked_up: req.body.picked_up
     }, condition, function(result) {
         if (result.changedRows == 0) {
             // If no rows were changed, then the ID must not exist, so 404
