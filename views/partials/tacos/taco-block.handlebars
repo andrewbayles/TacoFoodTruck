@@ -1,9 +1,14 @@
 <li>
-	{{name}}
+	{{taco_name}}
 
-	<button class="change-sleep" data-id="{{id}}" data-newsleep="{{sleep}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
+    <p>Shell: {{shell}}</p>
+
+    <p>Vegetarian: {{vegetarian}}</p>
+
+	<button class="change-pickedup" data-id="{{id}}" data-newpickedup="{{picked_up}}">
+		{{#if picked_up}}PICK UP{{else}}LEAVE BEHIND{{/if}}
 	</button>
 
-	<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>
+	<!--<button class="delete-cat" data-id="{{this.id}}">DELETE!</button>-->
+
 </li>

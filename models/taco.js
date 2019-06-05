@@ -2,7 +2,7 @@
 var orm = require("../config/orm.js");
 
 
-var cat = {
+var taco = {
     all: function(cb) {
         orm.selectAll("tacos", function(res) {
             cb(res);
@@ -22,5 +22,5 @@ var cat = {
 };
 
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (tacos_controller.js).
 module.exports = taco;
